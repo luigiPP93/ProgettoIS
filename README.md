@@ -1,6 +1,6 @@
 # ProgettoISDressMe
-Progetto IS Università di Salerno 
-Professore Andrea De Lucia
+Ingegneria del Software Universita degli studi di salerno (UNISA).Professore Andrea De Lucia
+
 # Partecipanti
 * Francesco Ciccone
 * Emanuele Riccardi 

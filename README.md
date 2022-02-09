@@ -4,4 +4,4 @@ Ingegneria del Software Universita degli studi di salerno (UNISA).Professore And
 # Partecipanti
 * Francesco Ciccone
 * Emanuele Riccardi 
-* Luigi Emanuele Sica
+* Luigi Emanuele Sica PP

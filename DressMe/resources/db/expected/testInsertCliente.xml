@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+  <CLIENTE nome='luigiPP' cognome='sicaPP' email='luigiPPSica@gmail.com' indirizzo='via giuseppe 24' password="luigi123"/>
+  	<CLIENTE nome='luigiPP2' cognome='sicaPP2' email='luigiPP2Sica@gmail.com' indirizzo='via giuseppe 24' password="luigi123"/>
+<CLIENTE nome='Luigi' cognome='Sica' email='luigi.sica1@gmail.com' indirizzo='via Roma 41, Avellino' password="123456"/>
+  	
+</dataset>

@@ -38,6 +38,9 @@ public class TestAcquisto extends Thread  {
 			vars = new HashMap<String, Object>();
 			System.setProperty("webdriver.chrome.driver",
 					"C:\\Users\\franc\\Desktop\\Selenium\\chromedriver_win32\\chromedriver.exe");
+			//System.setProperty("webdriver.chrome.driver","C:\\Users\\luigi\\Documents\\chromedriver_win32\\chromedriver.exe");
+			//System.setProperty("webdriver.chrome.driver","C:\\Users\\ricca\\Downloads\\chromedriver_win32\\chromedriver.exe");
+			
 			driver = new ChromeDriver();
 
 	  	driver.get("http://localhost:8080/DressMe/");

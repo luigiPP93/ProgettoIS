@@ -50,8 +50,8 @@
 	<section class="section-nav"> 
     <h1>Collezione Uomo</h1>
 	    <ul class="section-nav-item">
-	        <li><a class="nav-item" href="#t-shirt">t-shirt</a></li>
-	        <li><a class="nav-item" href="#felpe">felpe</a></li>
+	        <li><a class="nav-item" href="#t-shirt">T-shirt</a></li>
+	        <li><a class="nav-item" href="#felpe">Felpe</a></li>
 	        <li><a class="nav-item" href="#maglione">Maglioni</a></li>
 	        <li><a class="nav-item" href="#pantalone">Pantaloni</a></li>
 	    </ul>

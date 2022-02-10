@@ -35,10 +35,10 @@
 	<section class="section-nav"> 
 	    <h1>Collezione Bambino</h1>
 	    <ul class="section-nav-item">
-	        <li><a class="nav-item" href="#t-shirt">t-shirt</a></li>
-	        <li><a class="nav-item" href="#felpe">felpe</a></li>
-	        <li><a class="nav-item" href="#maglione">Maglioni</a></li>
-	        <li><a class="nav-item" href="#pantalone">Pantaloni</a></li>
+	        <li><a class="nav-item" href="#T-shirt">t-shirt</a></li>
+	        <li><a class="nav-item" href="#Felpe">felpe</a></li>
+	        <li><a class="nav-item" href="#Maglione">Maglioni</a></li>
+	        <li><a class="nav-item" href="#Pantalone">Pantaloni</a></li>
 	    </ul>
 	</section>
 <h2 id="t-shirt">T-Shirt</h2>

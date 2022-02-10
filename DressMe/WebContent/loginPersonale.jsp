@@ -40,7 +40,7 @@
 	<h2 id="login-message"></h2>
   	<h2>Login Personale</h2>
   
-  <form class="container-form" action="<%=response.encodeURL("LoginPersonaleControl")%>" method="POST">
+  <form  action="<%=response.encodeURL("LoginPersonaleControl")%>" method="POST">
     <div class="user-box">
       <input type="text" id="username" name="username" required="">
       <label>Email</label>
@@ -61,7 +61,7 @@
 
 <!-- ------------------------------------ Footer ----------------------------------------  -->
 
- 
+<%@ include file ="/footer.jsp" %> 
 
 </body>
 

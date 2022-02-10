@@ -552,7 +552,7 @@ header{
 }
 
 .ute {
-	border:solid 5px  #34495e;
+	/* border:solid 5px  #34495e;*/
 	border-radius: 30px;
     padding-top: 2px;
     padding-right: 7px;

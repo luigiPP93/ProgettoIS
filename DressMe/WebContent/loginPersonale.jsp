@@ -8,11 +8,10 @@
     <title>Account | DressMe Cloth collection</title>
     <link rel="shortcut icon" type="image/x-icon" href="images/Logo/logo-sito.gif">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleNavBar.css">
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
    
-   
-	
-	      <meta http-equiv="cache-control" content="max-age=0" />
+	<meta http-equiv="cache-control" content="max-age=0" />
 	<meta http-equiv="cache-control" content="no-cache" />
 	<meta http-equiv="expires" content="0" />
 	<meta http-equiv="pragma" content="no-cache" />

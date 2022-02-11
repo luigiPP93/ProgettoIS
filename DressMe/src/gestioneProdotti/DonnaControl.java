@@ -22,7 +22,7 @@ public class DonnaControl extends HttpServlet {
 		
 		try {
 			request.setAttribute("Donna", model.doRetrieveAllDonna(""));
-			
+		
 		}catch(SQLException e ){
 			Utility.print(e);
 			

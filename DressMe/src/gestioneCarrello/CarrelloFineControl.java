@@ -180,9 +180,7 @@ public class CarrelloFineControl extends HttpServlet {
 						
 					}
 				} 
-				
-				
-				
+							
 				else if ( action.equals("deleteCart")) {
 					String id = request.getParameter("id");
 					ShopBean bean = model.doRetrieveByKey(id);

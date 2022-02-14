@@ -103,7 +103,7 @@ public class LoginModelDS {
 		return bean;
 	}
 	
-	public boolean validate(UtenteBean  item) throws ClassNotFoundException, SQLException {
+	/*public boolean validate(UtenteBean  item) throws ClassNotFoundException, SQLException {
         boolean status = false;
         Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -168,7 +168,7 @@ public class LoginModelDS {
 		}
 		return bean;
 	}
-
+*/
 	private void printSQLException(SQLException e){
 		// TODO Auto-generated method stub
 	}

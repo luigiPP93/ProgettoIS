@@ -14,13 +14,13 @@ import it.unisa.utils.PasswordHasher;
 import it.unisa.utils.Utility;
 
 @WebServlet("/AdminDirettore")
-public class GestoreDirettoreControl  extends HttpServlet {
+public class GestorePersonaleControl  extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		DataSource ds = (DataSource)getServletContext().getAttribute("DataSource");
-		GestororeDirettoreModelDS mD = new GestororeDirettoreModelDS(ds);	
+		GestorePersonaleModelDS mD = new GestorePersonaleModelDS(ds);	
 		
 		String action = request.getParameter("action");	
 		

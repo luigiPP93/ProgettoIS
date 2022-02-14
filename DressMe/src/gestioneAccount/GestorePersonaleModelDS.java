@@ -13,10 +13,10 @@ import javax.sql.DataSource;
 
 import it.unisa.utils.Utility;
 
-public class GestororeDirettoreModelDS {
+public class GestorePersonaleModelDS {
 	private DataSource ds = null;
 
-	public GestororeDirettoreModelDS(DataSource ds) {
+	public GestorePersonaleModelDS(DataSource ds) {
 		this.ds = ds;
 	}
 

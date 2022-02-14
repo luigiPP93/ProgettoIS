@@ -62,40 +62,4 @@ public class PagamentoModelDS {
 
 	}
 	
-	
-	public void doSavePagamento(PagamentoBean item) throws SQLException {
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
-		
-		String insertSQL = "INSERT INTO Acquistato " + " (email,codiceVestito,data,importo) VALUES (?,?,?,?)";
-		
-		
-		try {
-			connection = ds.getConnection();
-			connection.setAutoCommit(false);
-			preparedStatement = connection.prepareStatement(insertSQL);
-			
-			preparedStatement.setString(1, item.getEmail());
-			preparedStatement.setString(2, item.getCodiceVestito());
-			preparedStatement.setDate(3, (Date) item.getData());
-			preparedStatement.setInt(4, item.getImporto());
-
-
-			Utility.print("doSave: " + preparedStatement.toString());
-
-			preparedStatement.executeUpdate();
-			
-			connection.commit();
-
-		} finally {
-			try {
-				if (preparedStatement != null)
-					preparedStatement.close();
-			} finally {
-				if (connection != null)
-					connection.close();
-			}
-		}
-
-	}
 }

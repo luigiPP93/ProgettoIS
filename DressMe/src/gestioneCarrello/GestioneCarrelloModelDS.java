@@ -60,7 +60,7 @@ public class GestioneCarrelloModelDS {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		String insertSQL = "INSERT INTO ordini  " + " (idemail,codiceVestito) VALUES (?,?)";
+		String insertSQL = "INSERT INTO Storico  " + " (idemail,codiceVestito) VALUES (?,?)";
 		
 		
 		try {
@@ -128,7 +128,7 @@ public class GestioneCarrelloModelDS {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		String updateSQL = "DELETE FROM ordini WHERE idemail=? and codiceVestito = ? ";
+		String updateSQL = "DELETE FROM Storico WHERE idemail=? and codiceVestito = ? ";
 		
 		
 		try {
@@ -214,10 +214,10 @@ public class GestioneCarrelloModelDS {
  
 
         String selectSQL =  "SELECT vestito.codiceVestito , titolo, descrizione, prezzo , copertina "
-                + "FROM ordini , "
+                + "FROM Storico , "
                 + "vestito , cliente "
-                + "where ordini.idemail = ? && ordini.idemail = cliente.email "
-                + "&& ordini.codiceVestito=vestito.codiceVestito;";
+                + "where Storico.idemail = ? && Storico.idemail = cliente.email "
+                + "&& Storico.codiceVestito=vestito.codiceVestito;";
 
  
 

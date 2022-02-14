@@ -26,7 +26,7 @@ public class CarrelloControl extends HttpServlet {
 		DataSource ds = (DataSource)getServletContext().getAttribute("DataSource");
 		ShopModelDS model=new ShopModelDS(ds);
 		GestioneCarrelloModelDS model2=new GestioneCarrelloModelDS (ds);
-		PagamentoModelDS modelPagamento = new PagamentoModelDS(ds);
+		OrdineModelDS modelPagamento = new OrdineModelDS(ds);
 		
 		HttpSession session = request.getSession();
 		String s= (String) session.getAttribute("nome");
@@ -87,7 +87,7 @@ public class CarrelloControl extends HttpServlet {
 		                     addCart.setCodiceVestito(prod.getCodiceVestito());
 	                         model2.doSave2(addCart);
 								}
-							GestioneOrdineBean b = new GestioneOrdineBean();
+							OrdineBean b = new OrdineBean();
 							int prezzo = (int) request.getSession().getAttribute("prezzo");
 							 String nomeS = (String) session.getAttribute("nomeS");
 							 String cognomeS=(String) session.getAttribute("cognomeS");

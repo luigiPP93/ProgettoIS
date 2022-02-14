@@ -9,28 +9,27 @@ import javax.sql.DataSource;
 
 import it.unisa.utils.Utility;
 
-public class PagamentoModelDS {
+public class OrdineModelDS {
 	
 	private DataSource ds = null;
 	
-	public PagamentoModelDS(DataSource ds){
+	public OrdineModelDS(DataSource ds){
 		this.ds = ds;
 		
 	}
 	
-	public void SalvaOrdine(GestioneOrdineBean o) throws SQLException {
+	public void SalvaOrdine(OrdineBean o) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		String insertSQL = "INSERT INTO GestoriOrdini " + " (email,nome,cognome,indirizzo,cap,comune,provincia,prezzo,prodotti,controllato) VALUES (?,?,?,?,?,?,?,?,?,?)";
+		String insertSQL = "INSERT INTO Ordine " + " (email,nome,cognome,indirizzo,cap,comune,provincia,prezzo,prodotti,controllato) VALUES (?,?,?,?,?,?,?,?,?,?)";
 		
 		
 		try {
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(insertSQL);
-			
-			
+					
 			preparedStatement.setString(1, o.getEmail());
 			preparedStatement.setString(2, o.getNome());
 			preparedStatement.setString(3, o.getCognome());

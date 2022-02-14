@@ -1,6 +1,6 @@
 package gestioneAcquisti;
 
-public class OrdiniBean {
+public class StoricoBean {
 	private String idemail;
 	private String codiceVestito;
 

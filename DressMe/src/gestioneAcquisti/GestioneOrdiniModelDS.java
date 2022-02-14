@@ -21,15 +21,13 @@ public class GestioneOrdiniModelDS {
 		this.ds = ds;
 		
 	}
-	public Collection<GestioneOrdineBean> ritornaTuttiOrdiniDaControllare() throws SQLException {
+	public Collection<OrdineBean> ritornaTuttiOrdiniDaControllare() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
-		String selectSQL = "SELECT * FROM GestoriOrdini WHERE controllato= ? ";
-
+		String selectSQL = "SELECT * FROM Ordine WHERE controllato= ? ";
 		
-
-		Collection<GestioneOrdineBean> products = new LinkedList<GestioneOrdineBean>();
+		Collection<OrdineBean> products = new LinkedList<OrdineBean>();
 
 		try {
 			connection = ds.getConnection();
@@ -41,7 +39,7 @@ public class GestioneOrdiniModelDS {
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
-				GestioneOrdineBean bean = new GestioneOrdineBean();
+				OrdineBean bean = new OrdineBean();
 				
 				bean.setNumeroOrdine(rs.getString("numeroOrdine"));
 				bean.setEmail(rs.getString("email"));
@@ -71,13 +69,13 @@ public class GestioneOrdiniModelDS {
 		return products; 
 	}
 	
-	public GestioneOrdineBean doRetrieveByKey(String code) throws SQLException {
+	public OrdineBean doRetrieveByKey(String code) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		GestioneOrdineBean bean = new GestioneOrdineBean();
+		OrdineBean bean = new OrdineBean();
 
-		String selectSQL = "SELECT * FROM GestoriOrdini WHERE numeroOrdine= ?";
+		String selectSQL = "SELECT * FROM Ordine WHERE numeroOrdine= ?";
 		
 		
 		try {
@@ -121,11 +119,11 @@ public class GestioneOrdiniModelDS {
 		return bean;
 	}
 	
-	public boolean doUpdate(GestioneOrdineBean item) throws SQLException {
+	public boolean doUpdate(OrdineBean item) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		String updateSQL = "UPDATE GestoriOrdini SET " + "email = ?, nome = ? , cognome = ? ,indirizzo = ?,cap = ?,comune = ?,provincia = ?,prezzo = ?,prodotti = ?,controllato =? WHERE numeroOrdine = ? ";
+		String updateSQL = "UPDATE Ordine SET " + "email = ?, nome = ? , cognome = ? ,indirizzo = ?,cap = ?,comune = ?,provincia = ?,prezzo = ?,prodotti = ?,controllato =? WHERE numeroOrdine = ? ";
 		
 	
 		try {
@@ -165,11 +163,11 @@ public class GestioneOrdiniModelDS {
 		return true;
 	}
 	
-	public boolean confermaOrdine(GestioneOrdineBean item) throws SQLException {
+	public boolean confermaOrdine(OrdineBean item) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		String updateSQL = "UPDATE GestoriOrdini SET " + "  controllato =? WHERE numeroOrdine = ? ";
+		String updateSQL = "UPDATE Ordine SET " + "  controllato =? WHERE numeroOrdine = ? ";
 		
 	
 		try {
@@ -200,11 +198,11 @@ public class GestioneOrdiniModelDS {
 		}
 		return true;
 	}
-	public boolean doDelete(GestioneOrdineBean item) throws SQLException {
+	public boolean doDelete(OrdineBean item) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		String updateSQL = "DELETE FROM GestoriOrdini WHERE numeroOrdine= ?";
+		String updateSQL = "DELETE FROM Ordine WHERE numeroOrdine= ?";
 		
 		
 		try {

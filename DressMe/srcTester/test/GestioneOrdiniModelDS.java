@@ -10,7 +10,7 @@ import java.util.LinkedList;
 
 import javax.sql.DataSource;
 
-import gestioneAcquisti.GestioneOrdineBean;
+import gestioneAcquisti.OrdineBean;
 import it.unisa.utils.Utility;
 
 public class GestioneOrdiniModelDS {
@@ -21,7 +21,7 @@ public class GestioneOrdiniModelDS {
 		this.ds = ds;
 		
 	}
-	public Collection<GestioneOrdineBean> ritornaTuttiOrdiniDaControllare() throws SQLException {
+	public Collection<OrdineBean> ritornaTuttiOrdiniDaControllare() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 
@@ -29,7 +29,7 @@ public class GestioneOrdiniModelDS {
 
 		
 
-		Collection<GestioneOrdineBean> products = new LinkedList<GestioneOrdineBean>();
+		Collection<OrdineBean> products = new LinkedList<OrdineBean>();
 
 		try {
 			connection = ds.getConnection();
@@ -41,7 +41,7 @@ public class GestioneOrdiniModelDS {
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
-				GestioneOrdineBean bean = new GestioneOrdineBean();
+				OrdineBean bean = new OrdineBean();
 				
 				bean.setNumeroOrdine(rs.getString("numeroOrdine"));
 				bean.setEmail(rs.getString("email"));
@@ -67,11 +67,11 @@ public class GestioneOrdiniModelDS {
 		return products; 
 	}
 	
-	public GestioneOrdineBean doRetrieveByKey(int code) throws SQLException {
+	public OrdineBean doRetrieveByKey(int code) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		GestioneOrdineBean bean = new GestioneOrdineBean();
+		OrdineBean bean = new OrdineBean();
 
 		String selectSQL = "SELECT * FROM GestoriOrdini WHERE numeroOrdine= ?";
 		
@@ -113,7 +113,7 @@ public class GestioneOrdiniModelDS {
 		return bean;
 	}
 	
-	public boolean doUpdate(GestioneOrdineBean item) throws SQLException {
+	public boolean doUpdate(OrdineBean item) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
@@ -156,7 +156,7 @@ public class GestioneOrdiniModelDS {
 		return true;
 	}
 	
-	public boolean confermaOrdine(GestioneOrdineBean item) throws SQLException {
+	public boolean confermaOrdine(OrdineBean item) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
@@ -187,7 +187,7 @@ public class GestioneOrdiniModelDS {
 			}
 		return true;
 	}
-	public boolean doDelete(GestioneOrdineBean item) throws SQLException {
+	public boolean doDelete(OrdineBean item) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		

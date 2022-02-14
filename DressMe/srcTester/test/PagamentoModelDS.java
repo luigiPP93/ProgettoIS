@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
-import gestioneAcquisti.GestioneOrdineBean;
+import gestioneAcquisti.OrdineBean;
 import gestioneAcquisti.PagamentoBean;
 import it.unisa.utils.Utility;
 
@@ -20,7 +20,7 @@ public class PagamentoModelDS {
 		
 	}
 	
-	public void SalvaOrdine(GestioneOrdineBean o) throws SQLException {
+	public void SalvaOrdine(OrdineBean o) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		

@@ -23,15 +23,15 @@ import org.junit.jupiter.api.BeforeAll;
 import org.mockito.Mockito;
 
 import gestioneAccount.UtenteBean;
-import gestioneAcquisti.GestioneOrdineBean;
+import gestioneAcquisti.OrdineBean;
 import test.*;
 
 public class TestGestoreOrdiniDAO {
 	private Connection db;
 	private GestioneOrdiniModelDS ordineDAO;
-	private GestioneOrdineBean ordineEsistente;
-	private GestioneOrdineBean ordineEsistente2;
-	private GestioneOrdineBean ordineNonEsistente;
+	private OrdineBean ordineEsistente;
+	private OrdineBean ordineEsistente2;
+	private OrdineBean ordineNonEsistente;
 	private UtenteBean cliente;
 	private UtenteBean cliente2;
 	private UtenteBean cliente3;
@@ -86,7 +86,7 @@ public class TestGestoreOrdiniDAO {
 		
 		userDAO.doSave(cliente3);
 		
-		ordineEsistente = new GestioneOrdineBean();
+		ordineEsistente = new OrdineBean();
 
 		ordineEsistente.setEmail("francesco1@gmail.com");
 		ordineEsistente.setNome("Francesco");
@@ -101,7 +101,7 @@ public class TestGestoreOrdiniDAO {
 
 		pagaDS.SalvaOrdine(ordineEsistente);
 		
-		ordineEsistente2 = new GestioneOrdineBean();
+		ordineEsistente2 = new OrdineBean();
 		
 		ordineEsistente2.setEmail("francesco2@gmail.com");
 		ordineEsistente2.setNome("Francesco2");
@@ -140,12 +140,12 @@ public class TestGestoreOrdiniDAO {
 	@Test
 	public void TestFindTuttiOrdini() throws SQLException {
 		
-		Collection<GestioneOrdineBean> actual = new LinkedList<GestioneOrdineBean>();
+		Collection<OrdineBean> actual = new LinkedList<OrdineBean>();
 		actual=ordineDAO.ritornaTuttiOrdiniDaControllare();
 		
-		Collection<GestioneOrdineBean> expected = new LinkedList<GestioneOrdineBean>();
+		Collection<OrdineBean> expected = new LinkedList<OrdineBean>();
 		
-		GestioneOrdineBean ordineEsistenteCollectio= new GestioneOrdineBean();
+		OrdineBean ordineEsistenteCollectio= new OrdineBean();
 		ordineEsistenteCollectio.setNumeroOrdine("1");
 		ordineEsistenteCollectio.setEmail("francesco1@gmail.com");
 		ordineEsistenteCollectio.setNome("Francesco");
@@ -160,7 +160,7 @@ public class TestGestoreOrdiniDAO {
 		
 		expected.add(ordineEsistenteCollectio);
 		
-		GestioneOrdineBean ordineEsistenteCollectio2= new GestioneOrdineBean();
+		OrdineBean ordineEsistenteCollectio2= new OrdineBean();
 		ordineEsistenteCollectio2.setNumeroOrdine("2");
 		ordineEsistenteCollectio2.setEmail("francesco2@gmail.com");
 		ordineEsistenteCollectio2.setNome("Francesco2");
@@ -177,11 +177,11 @@ public class TestGestoreOrdiniDAO {
 		
 		
 		
-		for(GestioneOrdineBean prod: expected) {								
+		for(OrdineBean prod: expected) {								
             System.out.println("Ordini inseriti"+prod.getNumeroOrdine());
 				}
 		
-		for(GestioneOrdineBean prod: actual) {								
+		for(OrdineBean prod: actual) {								
             System.out.println("Ordini Presenti"+prod.getNumeroOrdine());
             System.out.println("Ordini Presenti"+prod.getEmail());
 				}
@@ -193,7 +193,7 @@ public class TestGestoreOrdiniDAO {
 
 	@Test
 	public void TestUpdateOrdine() throws SQLException {
-		GestioneOrdineBean ordineEsistenteDaModificare= new GestioneOrdineBean();
+		OrdineBean ordineEsistenteDaModificare= new OrdineBean();
 		System.out.println("Ordini da modificare"+ordineEsistente2.getNumeroOrdine());
 		ordineEsistenteDaModificare.setNumeroOrdine("1");
 		ordineEsistenteDaModificare.setEmail("francesco2@gmail.com");
@@ -213,7 +213,7 @@ public class TestGestoreOrdiniDAO {
 	
 	@Test
 	public void TestUpdateOrdineNonEsistente() throws SQLException {
-		GestioneOrdineBean ordineEsistenteDaModificare= new GestioneOrdineBean();
+		OrdineBean ordineEsistenteDaModificare= new OrdineBean();
 		System.out.println("Ordini da modificare"+ordineEsistente2.getNumeroOrdine());
 		ordineEsistenteDaModificare.setNumeroOrdine("0");
 		ordineEsistenteDaModificare.setEmail("");

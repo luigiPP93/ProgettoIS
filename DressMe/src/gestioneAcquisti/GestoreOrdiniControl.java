@@ -34,7 +34,7 @@ public class GestoreOrdiniControl  extends HttpServlet {
 				}
 				else if ( action.equals("delete")) {
 					String id = request.getParameter("id");
-					GestioneOrdineBean bean = mO.doRetrieveByKey(id);
+					OrdineBean bean = mO.doRetrieveByKey(id);
 					if(bean!=null) {
 						mO.doDelete(bean);
 						request.setAttribute("message", "Product "+bean.getNumeroOrdine()+" deleted");
@@ -42,7 +42,7 @@ public class GestoreOrdiniControl  extends HttpServlet {
 				}	else if ( action.equals("update")) {
 					String id = request.getParameter("id");
 					String numeroOrdine =request.getParameter("NumeroOrdine");
-					GestioneOrdineBean o = mO.doRetrieveByKey(id);
+					OrdineBean o = mO.doRetrieveByKey(id);
 					String email =o.getEmail();
 					String nome =request.getParameter("nome");
 					String cognome =request.getParameter("cognome");
@@ -55,7 +55,7 @@ public class GestoreOrdiniControl  extends HttpServlet {
 					String controllato = request.getParameter("controllato");
 					
 					
-					GestioneOrdineBean bean = new GestioneOrdineBean();
+					OrdineBean bean = new OrdineBean();
 					
 					bean.setNumeroOrdine(id);
 					bean.setEmail(email);
@@ -73,7 +73,7 @@ public class GestoreOrdiniControl  extends HttpServlet {
 					request.setAttribute("message", "Product " + bean.getNumeroOrdine()+ " updated");
 				} else if (action.equals("conferma")) {
 					String id = request.getParameter("id");
-					GestioneOrdineBean bean = mO.doRetrieveByKey(id);
+					OrdineBean bean = mO.doRetrieveByKey(id);
 					mO.confermaOrdine(bean);
 					request.setAttribute("message", "Numero Ordine " + bean.getNumeroOrdine() + " confermato");
 				}

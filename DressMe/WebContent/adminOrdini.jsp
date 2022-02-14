@@ -2,17 +2,17 @@
     pageEncoding="ISO-8859-1" import="java.util.*,gestioneProdotti.*,gestioneAcquisti.*"%>
     
     <%
-    Collection<?> products = (Collection<?>)request.getAttribute("products");
+        Collection<?> products = (Collection<?>)request.getAttribute("products");
 
-	String error = (String)request.getAttribute("error");
-	 
-	if(products == null && error == null) {
-		response.sendRedirect(response.encodeRedirectURL("./AdminOrdini"));
-		return;
-	}
-	
-	GestioneOrdineBean product = (GestioneOrdineBean)request.getAttribute("product");
-%>
+        	String error = (String)request.getAttribute("error");
+        	 
+        	if(products == null && error == null) {
+        		response.sendRedirect(response.encodeRedirectURL("./AdminOrdini"));
+        		return;
+        	}
+        	
+        	OrdineBean product = (OrdineBean)request.getAttribute("product");
+        %>
 
 <!DOCTYPE html>
 <html>
@@ -55,11 +55,12 @@ if(ad==null)
 if(r==null){
 	response.sendRedirect("http://localhost:8080/DressMe/loginPersonale.jsp");
 }
-else if( r.equals("Gestore ordini")){ %>
+else if( r.equals("Gestore ordini")){
+%>
 <!-- CATALOGO -->
 <br>
 <table class="container">
-<a class="Opzioni-effect" href="<%=response.encodeURL("LogoutControl") %>">Logout</a>
+<a class="Opzioni-effect" href="<%=response.encodeURL("LogoutControl")%>">Logout</a>
 <h2>Elenco Ordini</h2>
 	<tr>
 		<th>Numero Ordine</th>
@@ -71,11 +72,11 @@ else if( r.equals("Gestore ordini")){ %>
 		<th>Action</th>
 	</tr>
 	<%
-		if(products != null && products.size() > 0) {
-	
-			Iterator<?> it = products.iterator();
-			while(it.hasNext()) {
-				GestioneOrdineBean bean = (GestioneOrdineBean)it.next();
+	if(products != null && products.size() > 0) {
+		
+		Iterator<?> it = products.iterator();
+		while(it.hasNext()) {
+			OrdineBean bean = (OrdineBean)it.next();
 	%>
 			<tr>
 				<td><%=bean.getNumeroOrdine() %> </td>

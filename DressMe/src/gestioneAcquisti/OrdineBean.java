@@ -1,13 +1,13 @@
 package gestioneAcquisti;
 
-public class GestioneOrdineBean {
+public class OrdineBean {
 	
  @Override
 	public String toString() {
 		// TODO Auto-generated method stub
 		return super.toString()+"GestoreOrdini";
 	}
-String numeroOrdine;
+ String numeroOrdine;
  String	email ;
  String	nome;
  String	cognome ;
@@ -97,10 +97,10 @@ public boolean equals(Object obj) {
 	if (this == obj) {
 		return true;
 	}
-	if (!(obj instanceof GestioneOrdineBean)) {
+	if (!(obj instanceof OrdineBean)) {
 		return false;
 	}
-	GestioneOrdineBean other = (GestioneOrdineBean) obj;
+	OrdineBean other = (OrdineBean) obj;
 	if (cap == null) {
 		if (other.cap != null) {
 			return false;

@@ -59,14 +59,14 @@ FOREIGN KEY(idEmail) references Cliente(email) on update cascade on delete casca
 FOREIGN KEY(codiceVestito) references Vestito(codiceVestito) on update cascade on delete cascade
 );
 
-create table ordini(
+create table Storico(
 	idemail varchar(25) not null,
 	codiceVestito varchar(5)not null,
 	FOREIGN KEY(idEmail) references Cliente(email) on update cascade on delete cascade,
 	FOREIGN KEY(codiceVestito) references Vestito(codiceVestito) on update cascade on delete cascade
 );
 
-create table GestoriOrdini (
+create table Ordine (
 numeroOrdine int auto_increment,
 email varchar(30) not null,
 nome varchar(15) NOT NULL,
@@ -106,7 +106,7 @@ DELIMITER
 
 DROP trigger if exists ACQUISTO;
 delimiter //
-create trigger ACQUISTO after insert on ordini for each row
+create trigger ACQUISTO after insert on Storico for each row
 begin
 update Vestito
 set quantitaVestito = quantitaVestito - 1
@@ -170,18 +170,18 @@ INSERT INTO Cliente(nome, cognome, email ,indirizzo, password)
 
 
 
-INSERT INTO GestoriOrdini(email,nome,cognome,indirizzo ,cap,comune,provincia,prezzo,prodotti,controllato)
+INSERT INTO Ordine(email,nome,cognome,indirizzo ,cap,comune,provincia,prezzo,prodotti,controllato)
  VALUES ('luigi@gmail.com','Luigi','Sella','via Roma 41','83100','Avellino','Avellino','30$',"Prodotto 1 maglia, prodotto 2 giubbotto",'false');
- INSERT INTO GestoriOrdini(email,nome,cognome,indirizzo ,cap,comune,provincia,prezzo,prodotti,controllato)
+ INSERT INTO Ordine(email,nome,cognome,indirizzo ,cap,comune,provincia,prezzo,prodotti,controllato)
  VALUES ('nessuno@gmail.com','Marta','Sella','via Roma 41','83100','Avellino','Avellino','30$',"Prodotto 1 maglia, prodotto 2 giubbotto",'false');
- INSERT INTO GestoriOrdini(email,nome,cognome,indirizzo ,cap,comune,provincia,prezzo,prodotti,controllato)
+ INSERT INTO Ordine(email,nome,cognome,indirizzo ,cap,comune,provincia,prezzo,prodotti,controllato)
  VALUES ('mario@gmail.com','Emanuele','Sella','via Roma 41','83100','Avellino','Avellino','30$',"Prodotto 1 maglia, prodotto 2 giubbotto",'false');
  
- INSERT INTO GestoriOrdini(email,nome,cognome,indirizzo ,cap,comune,provincia,prezzo,prodotti,controllato)
+ INSERT INTO Ordine(email,nome,cognome,indirizzo ,cap,comune,provincia,prezzo,prodotti,controllato)
  VALUES ('mario@gmail.com','Emanuele','Sella','via Roma 41','83100','Avellino','Avellino','30$',"Prodotto 1 maglia, prodotto 2 giubbotto",'false');
-INSERT INTO GestoriOrdini(email,nome,cognome,indirizzo ,cap,comune,provincia,prezzo,prodotti,controllato)
+INSERT INTO Ordine(email,nome,cognome,indirizzo ,cap,comune,provincia,prezzo,prodotti,controllato)
  VALUES ('mario@gmail.com','Emanuele','Sella','via Roma 41','83100','Avellino','Avellino','30$',"Prodotto 1 maglia, prodotto 2 giubbotto",'false');
-INSERT INTO GestoriOrdini(email,nome,cognome,indirizzo ,cap,comune,provincia,prezzo,prodotti,controllato)
+INSERT INTO Ordine(email,nome,cognome,indirizzo ,cap,comune,provincia,prezzo,prodotti,controllato)
  VALUES ('mario@gmail.com','Emanuele','Sella','via Roma 41','83100','Avellino','Avellino','30$',"Prodotto 1 maglia, prodotto 2 giubbotto",'false');
 
 /*------------------------------------------------------------------------Maglie Uomo------------------------------------------------------------------------*/

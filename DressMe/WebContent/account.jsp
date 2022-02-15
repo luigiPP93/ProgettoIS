@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="java.util.*,gestioneProdotti.*"%>
+    pageEncoding="ISO-8859-1" import="java.util.*,gestioneProdotti.*,gestioneAcquisti.*,java.sql.*,javax.sql.DataSource"%>
     
 
  
@@ -35,7 +35,7 @@
 		return;
 	}
 	
-	ShopBean product = (ShopBean)request.getAttribute("product");
+	OrdineBean product = (OrdineBean)request.getAttribute("product");
 %>
 
 <!-- ------------------------------------ Header ------------------------------------  -->
@@ -69,32 +69,57 @@
 	<a class="button" href="cambiaPassword.jsp"><b>Vuoi cambiare la password? Clicca qua</b></a> 
 	<%} %>
 	<h2>Qui potrai trovare i prodotti che hai acquistato</h2>
-		<tr> 
-			<th>Nome</th>
-			<th>Descrizione</th>
-			<th>Prezzo</th>
-			<th>Immagine</th>
-		</tr>		
+		
 		
 		<%if(request.getSession().getAttribute("email")!=null) {
 			
 			Iterator<?> it = products.iterator();
 			while(it.hasNext()) {
-				ShopBean prod = (ShopBean)it.next();
+				OrdineBean prod = (OrdineBean)it.next();
                    
                 %>
                 <form  method="get">
        
+        
+        	<tr>
+				<th class="colonne2">Numero Ordine</th>
+				<th class="colonne2">Indirizzo</th>
+				<th class="colonne2">Prezzo totale</th>
+			</tr>	
+			
         <tr>
-            <td> <%=prod.getTitolo() %> </td>
-            <td> <%=prod.getDescrizione()%></td>
-            <td> <%=prod.getPrezzo() %> &euro; </td>
-            <input type="text" name="id" value=<%=prod.getCodiceVestito()%> style="display: none;">
-           
-            <td><img src="<%= prod.getCopertina()%>" onerror="this.src='./image/noimage.png'" width=75px> </td>
-           
+         	<td> <%=prod.getNumeroOrdine() %> </td>
+			<td> <%=prod.getIndirizzo() %></td>
+			<td> <%=prod.getPrezzo() %></td>
         </tr>
        
+       <tr >
+<th >Codice Prodotto</th>
+<th >Nome Prodotto</th>
+<th >Descrizione</th>
+<th >Copertina</th>
+</tr>
+<%String codiciProdotti=prod.getProdotti();
+DataSource ds = (DataSource)getServletContext().getAttribute("DataSource");
+ShopModelDS model = new ShopModelDS(ds);
+for(int i=0; i<codiciProdotti.length();i=i+5 ){
+String codice=codiciProdotti.substring(i,i+5);
+ShopBean p =model.doRetrieveByKey(codice);
+%>
+<tr class="colonne">
+<th class="colonne"></th>
+<th class="colonne"></th>
+<th class="colonne"></th>
+<th class="colonne"></th>
+</tr>
+<td> <%=p.getCodiceVestito() %></td>
+<td> <%=p.getTitolo() %> </td>
+<td> <%=p.getDescrizione() %> </td>
+<td><img src="<%= p.getCopertina()%>" onerror="this.src='./image/noimage.png'" width=75px> </td>
+<% }
+%>
+
+</tr>
 
         <%
             }                       
@@ -102,7 +127,7 @@
 		%>
 		
 		<tr>
-			<td colspan="5">Non ci sono prodotti nel carrello</td>
+			<td colspan="5">Non hai ancora effetuato un ordine</td>
 		</tr>
 		
 		<%

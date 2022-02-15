@@ -96,6 +96,13 @@ public class CarrelloControl extends HttpServlet {
 							 String comuneS=(String)  session.getAttribute("comuneS");
 							 String provinciaS=(String)  session.getAttribute("provinciaS");
 							
+							 System.out.println(" param "+ prezzo);
+							 System.out.println(" param "+ nomeS);
+							 System.out.println(" param "+ cognomeS);
+							 System.out.println(" param "+ indirizzoS);
+							 System.out.println(" param "+ capS);
+							 System.out.println(" param "+ comuneS);
+							 System.out.println(" param "+ provinciaS);
 							b.setNome(nomeS);
 							b.setCap(capS);
 							b.setComune(comuneS);
@@ -106,9 +113,10 @@ public class CarrelloControl extends HttpServlet {
 							b.setEmail(email);
 							b.setControllato("false");
 							String prodotti="";
-							for(ShopBean prod: prodcart) {								
-			                    prodotti=prodotti+", ProdottoAcquistato"+prod.getDescrizione()+"codice"+prod.getCodiceVestito();
-									}
+							for(ShopBean prod: prodcart) {
+								prodotti=prodotti+prod.getCodiceVestito();
+								}
+								System.out.println("Tutti i codici dei prodotti"+prodotti);
 							b.setProdotti(prodotti);
 							modelPagamento.SalvaOrdine(b);
 							b.toString();

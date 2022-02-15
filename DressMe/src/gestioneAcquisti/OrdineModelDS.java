@@ -3,7 +3,10 @@ package gestioneAcquisti;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collection;
+import java.util.LinkedList;
 
 import javax.sql.DataSource;
 
@@ -23,8 +26,7 @@ public class OrdineModelDS {
 		PreparedStatement preparedStatement = null;
 		
 		String insertSQL = "INSERT INTO Ordine " + " (email,nome,cognome,indirizzo,cap,comune,provincia,prezzo,prodotti,controllato) VALUES (?,?,?,?,?,?,?,?,?,?)";
-		
-		
+				
 		try {
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
@@ -41,8 +43,6 @@ public class OrdineModelDS {
 			preparedStatement.setString(9, o.getProdotti());
 			preparedStatement.setString(10, o.getControllato());
 			
-
-
 			Utility.print("doSave: " + preparedStatement.toString());
 
 			preparedStatement.executeUpdate();

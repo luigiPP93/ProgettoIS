@@ -229,4 +229,54 @@ public class GestioneOrdiniModelDS {
 		}
 		return false;
 	}
+	
+	
+	public Collection<OrdineBean> ritornaTuttiOrdiniUtente(String email) throws SQLException {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+
+		String selectSQL = "SELECT * FROM Ordine WHERE email= ? ";
+
+		Collection<OrdineBean> products = new LinkedList<OrdineBean>();
+
+		try {
+		connection = ds.getConnection();
+		preparedStatement = connection.prepareStatement(selectSQL);
+		preparedStatement.setString(1, email);
+
+		Utility.print("doRetrieveAll: " + preparedStatement.toString());
+
+		ResultSet rs = preparedStatement.executeQuery();
+
+		while (rs.next()) {
+		OrdineBean bean = new OrdineBean();
+
+		bean.setNumeroOrdine(rs.getString("numeroOrdine"));
+		bean.setEmail(rs.getString("email"));
+		bean.setNome(rs.getString("nome"));
+		bean.setCognome(rs.getString("cognome"));
+		bean.setIndirizzo(rs.getString("indirizzo"));
+		bean.setCap(rs.getString("cap"));
+		bean.setComune(rs.getString("comune"));
+		bean.setProvincia(rs.getString("provincia"));
+		bean.setPrezzo(rs.getString("prezzo"));
+		bean.setProdotti(rs.getString("prodotti"));
+		bean.setControllato(rs.getString("controllato"));
+
+		products.add(bean);
+		}
+
+		} finally {
+		try {
+		if (preparedStatement != null)
+		preparedStatement.close();
+		} finally {
+		if (connection != null)
+		connection.close();
+		}
+		}
+
+		return products;
+		}
+	
 }

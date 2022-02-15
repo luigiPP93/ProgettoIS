@@ -13,7 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import javax.sql.DataSource;
 
-
+import gestioneAcquisti.GestioneOrdiniModelDS;
+import gestioneAcquisti.OrdineModelDS;
 import gestioneCarrello.*;
 
 @WebServlet("/AccountControl")
@@ -23,7 +24,7 @@ public class AccountControl extends HttpServlet {
     // doGet
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         DataSource ds = (DataSource)getServletContext().getAttribute("DataSource");
-        GestioneCarrelloModelDS model2 = new GestioneCarrelloModelDS(ds);
+        GestioneOrdiniModelDS model2 = new GestioneOrdiniModelDS(ds);
         
 		String email =(String) request.getSession().getAttribute("email");
 		
@@ -31,7 +32,7 @@ public class AccountControl extends HttpServlet {
 		if(email != null) {
 			try {
 				request.removeAttribute("products");
-				request.setAttribute("products", model2.TrovaCarrello2(email));
+				request.setAttribute("products", model2.ritornaTuttiOrdiniUtente(email));
 				
 				
 			} catch (SQLException e) {

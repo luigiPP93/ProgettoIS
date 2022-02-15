@@ -736,3 +736,18 @@ html {
     text-decoration: none;
     list-style: none;
 }
+
+.colonne{
+text-align: left;
+padding: 0.5rem;
+color: #fff;
+background-color: #f6f2f1;
+font-weight: normal;
+}
+.colonne2{
+text-align: left;
+padding: 0.5rem;
+color: #fff;
+background-color: #15759c;
+font-weight: normal;
+}

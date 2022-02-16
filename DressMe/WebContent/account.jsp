@@ -65,7 +65,7 @@
 		
 	<%} else{%>
 	 
-	<h2 class ="ute"> <%=tmp%> questo ï¿½ il tuo account</h2>
+	<h2 class ="ute"> <%=tmp%> questo è il tuo account</h2>
 	<a class="button" href="cambiaPassword.jsp"><b>Vuoi cambiare la password? Clicca qua</b></a> 
 	<%} %>
 	<h2>Qui potrai trovare i prodotti che hai acquistato</h2>

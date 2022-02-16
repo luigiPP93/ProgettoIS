@@ -65,7 +65,7 @@
 		
 	<%} else{%>
 	 
-	<h2 class ="ute"> <%=tmp%> questo è il tuo account</h2>
+	<h2 class ="ute"> <%=tmp%> questo ï¿½ il tuo account</h2>
 	<a class="button" href="cambiaPassword.jsp"><b>Vuoi cambiare la password? Clicca qua</b></a> 
 	<%} %>
 	<h2>Qui potrai trovare i prodotti che hai acquistato</h2>
@@ -84,12 +84,14 @@
         	<tr>
 				<th class="colonne2">Numero Ordine</th>
 				<th class="colonne2">Indirizzo</th>
+				<th class="colonne2"></th>
 				<th class="colonne2">Prezzo totale</th>
 			</tr>	
 			
         <tr>
          	<td> <%=prod.getNumeroOrdine() %> </td>
 			<td> <%=prod.getIndirizzo() %></td>
+			<td></td>
 			<td> <%=prod.getPrezzo() %></td>
         </tr>
        

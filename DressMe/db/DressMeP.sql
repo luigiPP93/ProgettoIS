@@ -171,18 +171,18 @@ INSERT INTO Cliente(nome, cognome, email ,indirizzo, password)
 
 
 INSERT INTO Ordine(email,nome,cognome,indirizzo ,cap,comune,provincia,prezzo,prodotti,controllato)
- VALUES ('luigi@gmail.com','Luigi','Sella','via Roma 41','83100','Avellino','Avellino','30$',"Prodotto 1 maglia, prodotto 2 giubbotto",'false');
+ VALUES ('luigi@gmail.com','Luigi','Sella','via Roma 41','83100','Avellino','Avellino','30$',"MG001",'false');
  INSERT INTO Ordine(email,nome,cognome,indirizzo ,cap,comune,provincia,prezzo,prodotti,controllato)
- VALUES ('nessuno@gmail.com','Marta','Sella','via Roma 41','83100','Avellino','Avellino','30$',"Prodotto 1 maglia, prodotto 2 giubbotto",'false');
+ VALUES ('nessuno@gmail.com','Marta','Sella','via Roma 41','83100','Avellino','Avellino','30$',"MG001MG004",'false');
  INSERT INTO Ordine(email,nome,cognome,indirizzo ,cap,comune,provincia,prezzo,prodotti,controllato)
- VALUES ('mario@gmail.com','Emanuele','Sella','via Roma 41','83100','Avellino','Avellino','30$',"Prodotto 1 maglia, prodotto 2 giubbotto",'false');
+ VALUES ('mario@gmail.com','Emanuele','Sella','via Roma 41','83100','Avellino','Avellino','30$',"MG003",'false');
  
  INSERT INTO Ordine(email,nome,cognome,indirizzo ,cap,comune,provincia,prezzo,prodotti,controllato)
- VALUES ('mario@gmail.com','Emanuele','Sella','via Roma 41','83100','Avellino','Avellino','30$',"Prodotto 1 maglia, prodotto 2 giubbotto",'false');
+ VALUES ('mario@gmail.com','Emanuele','Sella','via Roma 41','83100','Avellino','Avellino','30$',"MG002",'false');
 INSERT INTO Ordine(email,nome,cognome,indirizzo ,cap,comune,provincia,prezzo,prodotti,controllato)
- VALUES ('mario@gmail.com','Emanuele','Sella','via Roma 41','83100','Avellino','Avellino','30$',"Prodotto 1 maglia, prodotto 2 giubbotto",'false');
+ VALUES ('mario@gmail.com','Emanuele','Sella','via Roma 41','83100','Avellino','Avellino','30$',"MG001",'false');
 INSERT INTO Ordine(email,nome,cognome,indirizzo ,cap,comune,provincia,prezzo,prodotti,controllato)
- VALUES ('mario@gmail.com','Emanuele','Sella','via Roma 41','83100','Avellino','Avellino','30$',"Prodotto 1 maglia, prodotto 2 giubbotto",'false');
+ VALUES ('mario@gmail.com','Emanuele','Sella','via Roma 41','83100','Avellino','Avellino','30$',"MG001MG005",'false');
 
 /*------------------------------------------------------------------------Maglie Uomo------------------------------------------------------------------------*/
 
@@ -238,7 +238,7 @@ INSERT INTO Vestito(codiceVestito, idcategoria, quantitaVestito, titolo,descrizi
   INSERT INTO Vestito(codiceVestito, idcategoria, quantitaVestito, titolo,descrizione, prezzo, copertina)
  VALUES ('MG414','Bambini','4','Maglia T-REX','Maglia REX RoaaaaR','15',"image/Bambini/bimbo.maglia3.png");
  
- /*--------------------------------------------------------------------- Carrello  ------------------------------------------------------------------------*/
+ /*--------------------------------------------------------------------- Carrello ------------------------------------------------------------------------*/
  INSERT INTO Carrello(idemail ,codiceVestito )
  VALUES ('nessuno@gmail.com','MG006');
  

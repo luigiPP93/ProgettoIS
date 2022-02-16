@@ -1018,9 +1018,10 @@ td img {
 
 
 
-th:last-child {
+/*th:last-child {
   text-align: right;
-}
+}*/
+
 .circle2{
   width: 20px;
   height: 20px;

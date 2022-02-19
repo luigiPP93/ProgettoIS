@@ -78,4 +78,86 @@ public class ModificaOrdineTest {
       assert(elements.size() > 0);
     }
   }
+  @Test
+  public void eliminaOrdine() {
+    driver.get("http://localhost:8080/DressMe/loginPersonale.jsp");
+    driver.manage().window().setSize(new Dimension(1062, 808));
+    driver.findElement(By.id("username")).click();
+    driver.findElement(By.id("username")).sendKeys("ordini@gmail.com");
+    driver.findElement(By.id("password")).click();
+    driver.findElement(By.id("password")).sendKeys("AdminAdmin");
+    driver.findElement(By.id("login-submit")).click();
+    driver.findElement(By.cssSelector("tr:nth-child(4) #elimina")).click();
+    {
+      List<WebElement> elements = driver.findElements(By.cssSelector("p"));
+      assert(elements.size() > 0);
+    }
+  }
+  @Test
+  public void testAggiungiAlCarrello() {
+    driver.get("http://localhost:8080/DressMe/");
+    driver.manage().window().setSize(new Dimension(1066, 808));
+    driver.findElement(By.linkText("Login")).click();
+    driver.findElement(By.id("login-username")).sendKeys("pp9@gmail.com");
+    driver.findElement(By.id("login-password")).sendKeys("l123456");
+    driver.findElement(By.id("login-username")).click();
+    driver.findElement(By.id("login-username")).sendKeys("nessuno@gmail.com");
+    driver.findElement(By.id("login-password")).click();
+    driver.findElement(By.id("login-password")).sendKeys("AdminAdmin");
+    driver.findElement(By.id("login-submit")).click();
+    driver.findElement(By.linkText("Bambini")).click();
+    driver.findElement(By.cssSelector(".vetrina-item:nth-child(2) > .button")).click();
+    assertThat(driver.getTitle(), is("Carrello | DressMe Cloth collection"));
+  }
+  @Test
+  public void testConfermaOrdine() {
+    driver.get("http://localhost:8080/DressMe/loginPersonale.jsp");
+    driver.manage().window().setSize(new Dimension(1058, 808));
+    driver.findElement(By.id("username")).click();
+    driver.findElement(By.id("username")).click();
+    driver.findElement(By.id("username")).sendKeys("ordini@gmail.com");
+    driver.findElement(By.id("password")).click();
+    driver.findElement(By.id("password")).sendKeys("AdminAdmin");
+    driver.findElement(By.id("login-submit")).click();
+    driver.findElement(By.cssSelector("tr:nth-child(6) #conferma")).click();
+    {
+      List<WebElement> elements = driver.findElements(By.cssSelector("p"));
+      assert(elements.size() > 0);
+    }
+  }
+  @Test
+  public void testEliminaDalCarrello() {
+    driver.get("http://localhost:8080/DressMe/");
+    driver.manage().window().setSize(new Dimension(1070, 808));
+    driver.findElement(By.linkText("Login")).click();
+    driver.findElement(By.id("login-username")).sendKeys("pp9@gmail.com");
+    driver.findElement(By.id("login-password")).sendKeys("l123456");
+    driver.findElement(By.id("login-username")).click();
+    driver.findElement(By.id("login-username")).sendKeys("ne");
+    driver.findElement(By.id("login-username")).click();
+    driver.findElement(By.id("login-username")).sendKeys("nessuno@gmail.com");
+    driver.findElement(By.id("login-password")).click();
+    driver.findElement(By.id("login-password")).sendKeys("AdminAdmin");
+    driver.findElement(By.id("login-submit")).click();
+    driver.findElement(By.linkText("Bambini")).click();
+    driver.findElement(By.cssSelector(".vetrina-item:nth-child(1) > .button > b")).click();
+    driver.findElement(By.cssSelector("tr:nth-child(6) a")).click();
+    assertThat(driver.getTitle(), is("Carrello | DressMe Cloth collection"));
+  }
+  @Test
+  public void testEliminaProdotto() {
+    driver.get("http://localhost:8080/DressMe/loginPersonale.jsp");
+    driver.manage().window().setSize(new Dimension(1054, 807));
+    driver.findElement(By.id("username")).click();
+    driver.findElement(By.id("username")).sendKeys("prodotti@gmail.com");
+    driver.findElement(By.id("password")).click();
+    driver.findElement(By.id("password")).sendKeys("AdminAdmin");
+    driver.findElement(By.id("login-submit")).click();
+    driver.findElement(By.cssSelector("tr:nth-child(4) a:nth-child(2)")).click();
+    driver.findElement(By.cssSelector("p")).click();
+    {
+      List<WebElement> elements = driver.findElements(By.cssSelector("p"));
+      assert(elements.size() > 0);
+    }
+  }
 }
